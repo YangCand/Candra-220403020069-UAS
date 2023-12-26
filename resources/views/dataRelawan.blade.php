@@ -24,10 +24,10 @@
                         <tr>
                             <td style="border: 1px solid #ddd; padding: 8px;">{{ $loop->iteration }}</td>
                             <td style="border: 1px solid #ddd; padding: 8px;">
-                                @if ($ksr->foto)
-                                    <img src="{{ asset('foto' . $ksr->foto) }}" alt="Foto Relawan" style="max-width: 100px;">
-                                @else
+                                @if ($ksr->foto == '')
                                     No Image
+                                @else
+                                    <img src="{{ URL::asset('foto/' . $ksr->foto) }}"style="width: 100px; height: 100px;">
                                 @endif
                             </td>
                             <td style="border: 1px solid #ddd; padding: 8px;">{{ $ksr->nama }}</td>
