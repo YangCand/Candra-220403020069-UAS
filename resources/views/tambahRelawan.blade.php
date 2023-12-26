@@ -40,10 +40,10 @@
             </tr>
         </table>
         </form>
-        
+
         @else
         <h1>Update Data Relawan</h1>
-        <form action="/ubahRelawan/{{$kscare->nir}}" method="POST">
+        <form action="/ubahRelawan/{{$kscare->nir}}" enctype="multipart/form-data" method="POST">
         {{ csrf_field() }}
         <table>
             <tr>

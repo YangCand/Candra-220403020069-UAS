@@ -61,8 +61,13 @@ class KscareController extends Controller
             if ($request->hasFile('foto')) {
                 $file = $request->file('foto');
                 $nama_file = time() . "_" . $file->getClientOriginalName();
-                // Ubah path direktori sesuai dengan kebutuhan Anda
                 $tujuan_upload = 'foto';
+
+                $relawan = DB::table('relawan')->where('nir', $nir)->first();
+
+                if (file_exists($tujuan_upload . '/' . $relawan->foto)) {
+                    unlink($tujuan_upload . '/' . $relawan->foto);
+                }
                 $file->move($tujuan_upload, $nama_file);
 
                 DB::table('relawan')->where('nir', $nir)->update([
